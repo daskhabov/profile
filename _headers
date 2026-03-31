@@ -1,0 +1,15 @@
+# Cache-bust CSS, JS, and images on each deployment
+/styles.css
+  Cache-Control: no-cache, must-revalidate
+
+/main.js
+  Cache-Control: no-cache, must-revalidate
+
+/i18n.json
+  Cache-Control: no-cache, must-revalidate
+
+/*.jpg
+  Cache-Control: no-cache, must-revalidate
+
+/*.png
+  Cache-Control: no-cache, must-revalidate
