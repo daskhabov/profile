@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileStats.style.transform = '';
     mobileHeader.classList.add('stats-open');
     document.body.classList.add('stats-open');
+    document.body.style.overflow = 'hidden';
     requestAnimationFrame(() => {
       updateDrawerTop();
       mobileStats.classList.add('open');
@@ -101,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileStats.classList.remove('dragging');
     mobileStats.style.transform = '';
     mobileStats.classList.remove('open');
+    document.body.style.overflow = '';
     setTimeout(() => {
       mobileHeader.classList.remove('stats-open');
       document.body.classList.remove('stats-open');
@@ -127,17 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileStats) {
     updateDrawerTop();
     window.addEventListener('resize', updateDrawerTop);
-  }
-
-  // Auto-close when user scrolls past the bottom of the drawer content
-  if (mobileStats) {
-    mobileStats.addEventListener('scroll', () => {
-      if (!mobileStats.classList.contains('open')) return;
-      const { scrollTop, scrollHeight, clientHeight } = mobileStats;
-      if (scrollTop + clientHeight >= scrollHeight - 2) {
-        closeStats();
-      }
-    }, { passive: true });
   }
 
   // Pull-down gesture on mobile header
@@ -225,6 +216,33 @@ document.addEventListener('DOMContentLoaded', () => {
         drawerH = mobileStats.scrollHeight || 300;
       }, { passive: true });
     }
+
+    // Swipe up on the drawer itself to close
+    mobileStats.addEventListener('touchstart', (e) => {
+      // Only if drawer is open and at scroll top
+      if (!mobileStats.classList.contains('open')) return;
+      startY = e.touches[0].clientY;
+      isOpen = true;
+      dragging = true;
+      gestureStarted = false;
+      drawerH = mobileStats.scrollHeight || 300;
+    }, { passive: true });
+
+    // Prevent drawer scroll from leaking to body
+    mobileStats.addEventListener('touchmove', (e) => {
+      if (!mobileStats.classList.contains('open')) return;
+      const { scrollTop, scrollHeight, clientHeight } = mobileStats;
+      const atTop = scrollTop <= 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+      const delta = e.touches[0].clientY - startY;
+
+      // If at top and swiping up, let the close gesture handle it
+      if (atTop && delta < -5) return;
+      // If at bottom and swiping down, block it
+      if (atBottom && delta > 0) e.preventDefault();
+      // If at top and swiping down, block body scroll
+      if (atTop && delta > 0) e.preventDefault();
+    }, { passive: false });
   }
 
   // ---- GSAP Animations ----
