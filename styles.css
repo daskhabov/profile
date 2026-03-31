@@ -1047,6 +1047,8 @@ html[lang="ru"] .about__lead {
 
   .content { margin-left: 0; padding: 4.5rem 1.5rem 2rem; }
   .content > * { max-width: 100%; }
+  .section { padding-bottom: 2.5rem; margin-bottom: 0.25rem; }
+  .section--last { padding-bottom: 1.5rem; }
   .exp-card { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem; }
   .exp-card__highlights { grid-template-columns: 1fr; }
   .project { grid-template-columns: 1fr; gap: 1rem; padding: 1.25rem; }
@@ -1054,8 +1056,19 @@ html[lang="ru"] .about__lead {
   .about__details { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; gap: 1.25rem; }
   .footer { flex-direction: column; gap: 0.25rem; text-align: center; }
-  .top-controls { top: 0.55rem; right: 4.5rem; transition: top 0.4s var(--ease); }
+
+  /* Compact controls */
+  .top-controls { top: 0.55rem; right: 4.5rem; gap: 0.35rem; transition: top 0.4s var(--ease); }
   body.stats-open .top-controls { top: 1.1rem; }
+  .theme-toggle { width: 32px; height: 32px; }
+  .theme-toggle svg { width: 14px; height: 14px; }
+  .lang-switcher__btn { height: 32px; padding: 0 0.55rem; font-size: 0.6rem; }
+  .lang-switcher__btn svg { width: 13px; height: 13px; }
+  .mobile-header__burger { padding: 4px; }
+  .mobile-header__burger span { width: 20px; }
+  .mobile-header__stats-btn { padding: 4px; }
+  .mobile-header__stats-btn svg { width: 16px; height: 16px; }
+  .mobile-header__actions { gap: 0.25rem; }
 }
 
 /* ---- Cyrillic font override (Russian) ---- */
