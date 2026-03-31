@@ -838,6 +838,9 @@ html[lang="ru"] .about__lead {
 .mobile-header.stats-open .mobile-header__pull-hint {
   opacity: 0;
   animation: none;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .mobile-header__burger {
@@ -887,7 +890,7 @@ html[lang="ru"] .about__lead {
   z-index: 98;
   background: var(--bg);
   border-bottom: 1px solid var(--accent);
-  transform: translateY(-100%);
+  transform: translateY(calc(-100% - 20px));
   transition: transform 0.4s var(--ease), box-shadow 0.3s;
   will-change: transform;
   max-height: 80vh;
@@ -930,6 +933,7 @@ html[lang="ru"] .about__lead {
   animation: pulseDown 2s ease-in-out infinite;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.3s, height 0.3s var(--ease), padding 0.3s var(--ease);
 }
 
 .mobile-header__pull-hint svg {
@@ -1034,8 +1038,8 @@ html[lang="ru"] .about__lead {
   .footer { flex-direction: column; gap: 0.25rem; text-align: center; }
 
   /* Compact controls */
-  .top-controls { top: 0.55rem; right: 3.25rem; gap: 0.35rem; transition: top 0.4s var(--ease); }
-  body.stats-open .top-controls { top: 1.1rem; }
+  .top-controls { top: 0.7rem; right: 3.25rem; gap: 0.35rem; transition: top 0.4s var(--ease); }
+  body.stats-open .top-controls { top: 1.2rem; }
   .theme-toggle { width: 32px; height: 32px; }
   .theme-toggle svg { width: 14px; height: 14px; }
   .lang-switcher__btn { height: 32px; padding: 0 0.55rem; font-size: 0.6rem; }
