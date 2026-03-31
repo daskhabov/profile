@@ -736,13 +736,15 @@ html[lang="ru"] .about__lead {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 0.65rem 1.5rem;
+  padding: 0.65rem 1.5rem 0;
   background: var(--mobile-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   transition: background 0.4s, padding 0.4s var(--ease);
+  border-bottom: 1px solid var(--accent);
 }
 
 .mobile-header__identity {
@@ -820,12 +822,6 @@ html[lang="ru"] .about__lead {
   max-height: 1.5em;
   opacity: 1;
   margin-top: 0.1rem;
-}
-
-/* Hide stats button when open, keep burger visible */
-.mobile-header.stats-open .mobile-header__stats-btn {
-  opacity: 0;
-  pointer-events: none;
 }
 
 /* Burger transforms to X when stats drawer is open */
@@ -925,20 +921,14 @@ html[lang="ru"] .about__lead {
 
 /* Pull-down chevron indicator on mobile header */
 .mobile-header__pull-hint {
-  position: absolute;
-  bottom: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 48px;
-  height: 24px;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  padding: 0.15rem 0 0;
   color: var(--accent);
   opacity: 0.6;
   animation: pulseDown 2s ease-in-out infinite;
   cursor: pointer;
-  z-index: 1;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -949,8 +939,8 @@ html[lang="ru"] .about__lead {
 /* Hide chevron when drawer is open — handled by .mobile-header.stats-open rule */
 
 @keyframes pulseDown {
-  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
-  50% { transform: translateX(-50%) translateY(3px); opacity: 1; }
+  0%, 100% { opacity: 0.6; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(3px); }
 }
 
 .mobile-stats__inner {
@@ -990,20 +980,6 @@ html[lang="ru"] .about__lead {
   align-items: center;
   gap: 0.5rem;
   transition: opacity 0.3s var(--ease);
-}
-
-.mobile-header__stats-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-dim);
-  padding: 6px;
-  transition: color 0.3s, opacity 0.3s var(--ease);
-}
-
-.mobile-header__stats-btn:hover,
-.mobile-header__stats-btn.active {
-  color: var(--accent);
 }
 
 /* ---- Hidden section heading (divider only on mobile) ---- */
@@ -1058,7 +1034,7 @@ html[lang="ru"] .about__lead {
   .footer { flex-direction: column; gap: 0.25rem; text-align: center; }
 
   /* Compact controls */
-  .top-controls { top: 0.55rem; right: 4.5rem; gap: 0.35rem; transition: top 0.4s var(--ease); }
+  .top-controls { top: 0.55rem; right: 3.25rem; gap: 0.35rem; transition: top 0.4s var(--ease); }
   body.stats-open .top-controls { top: 1.1rem; }
   .theme-toggle { width: 32px; height: 32px; }
   .theme-toggle svg { width: 14px; height: 14px; }
@@ -1066,8 +1042,6 @@ html[lang="ru"] .about__lead {
   .lang-switcher__btn svg { width: 13px; height: 13px; }
   .mobile-header__burger { padding: 4px; }
   .mobile-header__burger span { width: 20px; }
-  .mobile-header__stats-btn { padding: 4px; }
-  .mobile-header__stats-btn svg { width: 16px; height: 16px; }
   .mobile-header__actions { gap: 0.25rem; }
 }
 
