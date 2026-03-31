@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---- Mobile Stats Drawer (button toggle + pull-down gesture) ----
-  const statsToggle = document.getElementById('statsToggle');
   const mobileStats = document.getElementById('mobileStats');
   const mobileHeader = document.getElementById('mobileHeader');
   const statsHandle = document.getElementById('statsHandle');
@@ -96,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
       updateDrawerTop();
       mobileStats.classList.add('open');
     });
-    statsToggle.classList.add('active');
   }
 
   function closeStats() {
@@ -108,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.remove('stats-open');
       requestAnimationFrame(updateDrawerTop);
     }, 50);
-    statsToggle.classList.remove('active');
   }
 
   function toggleStats() {
@@ -127,8 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (statsToggle && mobileStats) {
-    statsToggle.addEventListener('click', toggleStats);
+  if (mobileStats) {
     updateDrawerTop();
     window.addEventListener('resize', updateDrawerTop);
   }

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="styles.css">
   <script>
     // Cache-bust: append deploy timestamp to local assets
-    (function(){var v='v=20260331f';document.querySelectorAll('link[rel="stylesheet"][href="styles.css"]').forEach(function(l){l.href='styles.css?'+v});})();
+    (function(){var v='v=20260331h';document.querySelectorAll('link[rel="stylesheet"][href="styles.css"]').forEach(function(l){l.href='styles.css?'+v});})();
   </script>
 </head>
 <body>
@@ -49,9 +49,6 @@
       </div>
     </div>
     <div class="mobile-header__actions">
-      <button class="mobile-header__stats-btn" id="statsToggle" aria-label="Toggle stats">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
-      </button>
       <button class="mobile-header__burger" id="burger" aria-label="Toggle menu">
         <span></span><span></span>
       </button>
@@ -236,7 +233,7 @@
         <div class="project">
           <div class="project__image"><div class="project__placeholder project__placeholder--accent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><path d="M12 2L2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div></div>
           <div class="project__body">
-            <div class="project__top"><h3 class="project__title" data-i18n="proj.portfolio.title">This Portfolio</h3><span class="project__type" data-i18n="proj.portfolio.type">AI-Augmented</span></div>
+            <div class="project__top"><h3 class="project__title" data-i18n="proj.portfolio.title">This Portfolio</h3><a href="https://github.com/daskhabov/profile" target="_blank" rel="noopener" class="project__link" data-i18n="proj.portfolio.link">Portfolio ↗</a></div>
             <p class="project__desc" data-i18n="proj.portfolio.desc">Built with vanilla HTML, CSS & JS + GSAP animations. Designed and developed using AI-augmented workflow with Kiro — spec-driven development in action.</p>
             <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">GSAP</span><span class="tag">Kiro</span></div>
           </div>
@@ -278,6 +275,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="main.js?v=20260331f"></script>
+  <script src="main.js?v=20260331h"></script>
 </body>
 </html>
